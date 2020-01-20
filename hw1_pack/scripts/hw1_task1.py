@@ -8,7 +8,7 @@ class RoboDriver:
     def __init__(self):
         self.vel_msg = Twist()
         self.rate = rospy.Rate(1)
-        self.cmb_pub = rospy.Publisher("cmd_vel", Twist, queue_size = 0)
+        self.cmd_pub = rospy.Publisher("cmd_vel", Twist, queue_size = 0)
         ##self.odom_sub = rospy.Subscriber('odom', Odometry, self.odom_callback)
 
     def move_forward(self, dis):
