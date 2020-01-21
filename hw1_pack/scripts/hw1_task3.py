@@ -4,7 +4,7 @@ from nav_msgs.msg import Odometry
 
 class RoboDriver:
     def __init__(self):
-        self.odom_sub = rospy.Subscriber('odom', Odometry, self.odom_callback)
+        self.odom_sub = rospy.Subscriber('/pose', Odometry, self.odom_callback)
 
     def odom_callback(self, msg):
         print msg
