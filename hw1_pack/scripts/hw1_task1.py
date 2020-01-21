@@ -2,7 +2,8 @@
 import rospy
 from geometry_msgs.msg import Twist
 ##from nav_msgs.msg import Odometry
-VEL_X = 0.3
+VEL_X = 0.2
+DIS_ = 0
 
 class RoboDriver:
     def __init__(self):
@@ -13,15 +14,14 @@ class RoboDriver:
 
     def move_forward(self, dis):
         start_time = rospy.Time.now().to_sec()
-        moved_dis = 0
         self.vel_msg.linear.x = VEL_X
-        self.cmd_pub.publish(vel_msg)
-        while moved_dis < dis:
+        self.cmd_pub.publish(self.vel_msg)
+        while DIS_ < dis:
           now_time = rospy.Time.now().to_sec()
           dt = now_time - start_time
-          moved_dis += dt * self.vel_x
+          DIS_ += dt * VEL_X
         self.vel_msg.linear.x = 0
-        self.cmd_pub.publish(vel_msg)
+        self.cmd_pub.publish(self.vel_msg)
 
     ##def odom_callback(self, msg):
         ##print msg
