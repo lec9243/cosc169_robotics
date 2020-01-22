@@ -8,7 +8,7 @@ class RoboDriver:
         self.vel_x = 0.1
         self.moved_dis = 0
         self.vel_msg = Twist()
-        self.rate = rospy.Rate(100)
+        self.rate = rospy.Rate(10)
         self.cmd_pub = rospy.Publisher("cmd_vel", Twist, queue_size = 0)
         ##self.odom_sub = rospy.Subscriber('odom', Odometry, self.odom_callback)
 
@@ -35,6 +35,6 @@ class RoboDriver:
             self.rate.sleep() 
 
 if __name__ == '__main__':
-    rospy.init_node("cmd_node")
+    rospy.init_node("move_forward")
     r = RoboDriver()
     r.main()

@@ -1,10 +1,11 @@
 <launch>
   
-  <node pkg="hw1_pack" name="move_forward" type="hw1_task1.py" />
-  <node pkg="hw1_pack" name="get_position" type="hw1_task3.py" />
-  <node pkg="robot_webui" name="serial_bridge" type="serial_bridge.sh" output="screen" />
+  <node pkg="hw1_pack" name="move_forward" type="hw1_task1.py" output="screen" />
+  <node pkg="hw1_pack" name="get_position" type="hw1_task3.py" output="screen"/>
+  <node pkg="husarion_ros" name="odometry_serial_bridge" type="serial_bridge.sh" output="screen" />
     <include file="$(find rplidar_ros)/launch/rplidar.launch" />
     <include file="$(find astra_launch)/launch/astra.launch" />
-  <node pkg="rosbag" type="record" name="recordalltopics" output="screen" args="record -a -x '/camera/(?!compressed)(.*) -O ./record" />
+  <node pkg="rosbag" type="record" name="recordalltopics" output="screen" args="-a -x '/camera/(.*)' -O $(find hw1_pack)/recordall" />
+  <node pkg="rosbag" type="record" name="recordcpmpressedtopics" output="screen" args="-e '/camera/(.*)(compressed)(.*)' -O $(find hw1_pack)/recordcompressed" />
 
 </launch>
