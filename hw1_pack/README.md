@@ -5,7 +5,7 @@ $ source devel/setup.bash
 $ roslaunch hw1_pack hw1_task2.launch
 ```
 
-To run scripts indivually, first run roscore and serial_bridge.sh, then run the command
+To run scripts individually, first run roscore and serial_bridge.sh, then run the command
 ```
 rosrun hw1_pack hw1_task*.py
 ```
