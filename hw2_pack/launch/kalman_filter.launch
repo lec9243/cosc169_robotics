@@ -1,0 +1,7 @@
+<launch>
+  
+  <node pkg="tf" type="static_transform_publisher" name="odom_kf_publisher" args="0 0 0 0 0 0 1 odom kf_odom 100"/>
+  <node pkg="hw2_pack" name="kf_node" type="kalman_filter.py" output="screen" />
+  <node pkg="hw2_pack" name="initial_node" type="initial_node.py" output="screen" />
+
+</launch>
