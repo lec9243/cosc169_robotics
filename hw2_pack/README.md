@@ -15,3 +15,4 @@ $ roslaunch hw2_pack depth_scan.launch
 ```
 
 Note there are something need to chamge by hand in scripts, please see comments
+Git doesn't allow me to upload large file so I can't upload my .bag file
