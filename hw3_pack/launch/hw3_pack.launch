@@ -1,0 +1,5 @@
+<launch>
+
+  <node pkg="hw3_pack" name="graph_node" type="graph_opt.py" output="screen" />
+
+</launch>
